@@ -20,7 +20,6 @@ public class ScreenCompromissos extends Fragment {
 
     private RecyclerView mRecyclerView;
     private ScreenCompromissosAdapter screenCompromissosAdapter;
-    private CompromissoCollection compromissoCollection = new CompromissoCollection();
     public ScreenCompromissos() {
         // Required empty public constructor
     }
@@ -42,7 +41,7 @@ public class ScreenCompromissos extends Fragment {
         mRecyclerView = getView().findViewById(R.id.compromissosRecycler);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        screenCompromissosAdapter = new ScreenCompromissosAdapter(compromissoCollection);
+        screenCompromissosAdapter = new ScreenCompromissosAdapter(CompromissoCollection.getInstance());
         mRecyclerView.setAdapter(screenCompromissosAdapter);
     }
 }

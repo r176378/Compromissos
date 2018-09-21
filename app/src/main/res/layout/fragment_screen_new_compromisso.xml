@@ -10,71 +10,87 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     >
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_titulo"/>
+
+
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:columnCount="3"
-        android:rowCount="1">
+        android:rowCount="2">
+        <TextView
+         android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="Dia"/>
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="Mês"/>
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="Ano"/>
         <Spinner
-            android:id="@+id/spinnerHour"
+            android:id="@+id/spinnerDay"
             android:layout_height="wrap_content"
             android:layout_width="match_parent">
-
-
-
+        </Spinner>
+        <Spinner
+            android:id="@+id/spinnerMonth"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+        </Spinner>
+        <Spinner
+            android:id="@+id/spinnerYear"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
         </Spinner>
 
     </GridLayout>
-
-<GridLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:columnCount="2"
-    android:rowCount="1">
     <RadioGroup
-        android:id="@+id/amPmRadioGroup"
+        android:id="@+id/radio_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:layout_above="@+id/view_below" >
 
-    <RadioButton
-        android:id="@+id/radioPm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="PM" />
+        <RadioButton
+            android:id="@+id/radioAM"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="AM" />
 
-    <RadioButton
-        android:id="@+id/radioAm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="AM" />
+        <RadioButton
+            android:id="@+id/radioPM"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="PM" />
     </RadioGroup>
 
-</GridLayout>
     <!-- TODO: Update blank fragment layout -->
     <ListView
         android:id="@+id/list_v"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1" />
+    <CheckBox
+        android:id="@+id/checkboxImportante"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Importante" />
 
     <Button
-        android:id="@+id/btn1"
+        android:id="@+id/btnSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="Salvar" />
 
-    <CheckBox
-        android:id="@+id/checkbox_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="CheckBox1" />
-
-    <CheckBox
-        android:id="@+id/checkbox_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="CheckBox2" />
 
 
 
