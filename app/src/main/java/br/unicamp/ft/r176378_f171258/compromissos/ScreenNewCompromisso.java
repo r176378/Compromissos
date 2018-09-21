@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class screenNewCompromisso extends Fragment {
+public class ScreenNewCompromisso extends Fragment {
 
 
-    public screenNewCompromisso() {
+    public ScreenNewCompromisso() {
         // Required empty public constructor
     }
 

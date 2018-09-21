@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class cardCompromisso extends Fragment {
+public class ScreenCalendar extends Fragment {
 
 
-    public cardCompromisso() {
+    public ScreenCalendar() {
         // Required empty public constructor
     }
 
@@ -23,7 +23,7 @@ public class cardCompromisso extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_card_compromisso, container, false);
+        return inflater.inflate(R.layout.fragment_screen_calendar, container, false);
     }
 
 }
