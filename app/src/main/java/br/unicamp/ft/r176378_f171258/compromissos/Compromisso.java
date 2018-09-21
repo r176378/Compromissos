@@ -5,6 +5,12 @@ public class Compromisso {
     String date;
     String time;
 
+    public Compromisso(String title, String date, String time) {
+        this.title = title;
+        this.date = date;
+        this.time = time;
+    }
+
     public String getTitle() {
         return title;
     }
