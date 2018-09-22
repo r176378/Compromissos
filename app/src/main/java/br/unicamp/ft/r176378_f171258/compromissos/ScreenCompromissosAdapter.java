@@ -8,17 +8,19 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class ScreenCompromissosAdapter extends RecyclerView.Adapter{
-    private CompromissoCollection compromissoCollection;
+    private ArrayList<Compromisso> compromissoCollection;
 
 
 
-    ScreenCompromissosAdapter(CompromissoCollection compromissoCollection){
-        this.compromissoCollection =compromissoCollection;
+    ScreenCompromissosAdapter(ArrayList<Compromisso> compromissos){
+        this.compromissoCollection =compromissos;
     }
 
     private void deleteCompromisso(int position){
-        compromissoCollection.getComprimissoList().remove(position);
+        CompromissoCollection.getInstance().getComprimissoList().remove(position);
         notifyDataSetChanged();
     }
 
@@ -41,12 +43,13 @@ public class ScreenCompromissosAdapter extends RecyclerView.Adapter{
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-
+        final Compromisso compromisso = compromissoCollection.get(i);
+        ((CardCompromissoHolder) viewHolder).bind(compromisso);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return compromissoCollection.size();
     }
 
     class CardCompromissoHolder extends RecyclerView.ViewHolder{

@@ -13,65 +13,56 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText_titulo"/>
+        android:id="@+id/editText_titulo"
+        android:hint="Titulo"
+        android:layout_marginBottom="10dp"
+      />
 
+
+        <DatePicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/datePicker"
+            android:layout_gravity="center"></DatePicker>
 
     <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="1"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center">
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:columnCount="3"
-        android:rowCount="2">
-        <TextView
-         android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:text="Dia"/>
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:text="Mês"/>
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:text="Ano"/>
-        <Spinner
-            android:id="@+id/spinnerDay"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent">
-        </Spinner>
-        <Spinner
-            android:id="@+id/spinnerMonth"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent">
-        </Spinner>
-        <Spinner
-            android:id="@+id/spinnerYear"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent">
-        </Spinner>
-
-    </GridLayout>
+        android:id="@+id/editText_horario"
+        android:minWidth="170dp"
+        android:layout_marginRight="20dp"
+        android:hint="Horario"/>
     <RadioGroup
         android:id="@+id/radio_group"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_above="@+id/view_below" >
 
         <RadioButton
-            android:id="@+id/radioAM"
-            android:layout_width="0dp"
+            android:id="@+id/AM"
+            android:layout_width="wrap_content"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="AM" />
+            android:text="AM"
+            android:layout_marginRight="30dp"/>
 
         <RadioButton
-            android:id="@+id/radioPM"
-            android:layout_width="0dp"
+            android:id="@+id/PM"
+            android:layout_width="wrap_content"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="PM" />
     </RadioGroup>
+    </GridLayout>
 
     <!-- TODO: Update blank fragment layout -->
     <ListView
@@ -79,17 +70,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1" />
-    <CheckBox
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="1"
+        android:layout_gravity="center"
+        >
+        <Spinner
+        android:id="@+id/spinnerMonth"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:entries="@array/tipo"
+        android:layout_gravity="center"
+        >
+    </Spinner>
+        <CheckBox
         android:id="@+id/checkboxImportante"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Importante" />
+      </GridLayout>
+
+
+
+
 
     <Button
         android:id="@+id/btnSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Salvar" />
+        android:text="Salvar"
+        android:layout_marginTop="15dp"/>
 
 
 

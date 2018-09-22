@@ -41,7 +41,7 @@ public class ScreenCompromissos extends Fragment {
         mRecyclerView = getView().findViewById(R.id.compromissosRecycler);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        screenCompromissosAdapter = new ScreenCompromissosAdapter(CompromissoCollection.getInstance());
+        screenCompromissosAdapter = new ScreenCompromissosAdapter(CompromissoCollection.getInstance().getComprimissoList());
         mRecyclerView.setAdapter(screenCompromissosAdapter);
     }
 }

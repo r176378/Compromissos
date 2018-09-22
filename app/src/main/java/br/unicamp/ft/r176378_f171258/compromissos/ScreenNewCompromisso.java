@@ -10,8 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 
@@ -21,10 +23,13 @@ import android.widget.Toast;
 public class ScreenNewCompromisso extends Fragment {
 
     EditText editTitulo;
+    EditText editTime;
     Button btnSave;
     RadioButton radioAm;
     RadioButton radioPm;
+    RadioGroup radioGroup;
     CheckBox chkImportante;
+    DatePicker datePicker;
 
 
 
@@ -36,13 +41,13 @@ public class ScreenNewCompromisso extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Toast.makeText(getContext(), "fiwf", Toast.LENGTH_SHORT);
             CompromissoCollection.getInstance()
                     .getComprimissoList()
                     .add(new Compromisso(
                             editTitulo.getText().toString(),
-                            "1111",
-                            "1111"));
+                            datePicker.getDayOfMonth()+ "/"+ datePicker.getMonth() + "/" + datePicker.getYear(),
+
+                            editTime.getText().toString() + " "+radioGroup.getCheckedRadioButtonId()));
         }
     };
 
@@ -53,19 +58,24 @@ public class ScreenNewCompromisso extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_screen_new_compromisso, container, false);
 
-        return inflater.inflate(R.layout.fragment_screen_new_compromisso, container, false);
+        btnSave = (Button) view.findViewById(R.id.btnSave);
+        chkImportante = view.findViewById(R.id.checkboxImportante);
+        editTitulo = view.findViewById(R.id.editText_titulo);
+        radioAm = view.findViewById(R.id.AM);
+        radioPm= view.findViewById(R.id.PM);
+        btnSave.setOnClickListener(btnListener);
+        datePicker = view.findViewById(R.id.datePicker);
+        editTime = view.findViewById(R.id.editText_horario);
+        radioGroup = view.findViewById(R.id.radio_group);
+        return view;
 
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        btnSave = getActivity().findViewById(R.id.btnSave);
-        chkImportante = getActivity().findViewById(R.id.checkboxImportante);
-        editTitulo = getActivity().findViewById(R.id.editText_titulo);
-        radioAm = getActivity().findViewById(R.id.radioAM);
-        radioPm= getActivity().findViewById(R.id.radioPM);
-        btnSave.setOnClickListener(btnListener);
+
     }
 }

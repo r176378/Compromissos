@@ -47,6 +47,12 @@ public class Main extends AppCompatActivity
         fragmentManager = getSupportFragmentManager();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        FragmentTransaction ftrans = fragmentManager.beginTransaction();
+        ScreenCompromissos screenCompromissos = new ScreenCompromissos();
+        ftrans.replace(R.id.mainContainer, screenCompromissos, "screenCompromissos");
+        ftrans.addToBackStack("screenCompromissos");
+        ftrans.commit();
     }
 
     @Override
