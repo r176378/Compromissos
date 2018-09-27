@@ -8,6 +8,12 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 public class ScreenCompromissosAdapter extends RecyclerView.Adapter{
@@ -17,6 +23,23 @@ public class ScreenCompromissosAdapter extends RecyclerView.Adapter{
 
     ScreenCompromissosAdapter(ArrayList<Compromisso> compromissos){
         this.compromissoCollection =compromissos;
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = firebaseDatabase.getReference();
+        databaseReference.child("compromissos").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Iterable<DataSnapshot> dbCompromissos = dataSnapshot.getChildren();
+                for (DataSnapshot compromisso: dbCompromissos) {
+                    compromissoCollection.add(compromisso.getValue(Compromisso.class));
+                }
+                notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void deleteCompromisso(int position){
@@ -37,6 +60,8 @@ public class ScreenCompromissosAdapter extends RecyclerView.Adapter{
                 return true;
             }
         });
+
+
 
         return new CardCompromissoHolder(v);
         }

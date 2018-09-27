@@ -52,7 +52,7 @@ public class ScreenNewCompromisso extends Fragment {
 
                             editTime.getText().toString() + " "+radio.getText().toString()));
             FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference myRef = database.getReference("message");
+            DatabaseReference myRef = database.getReference("compromissos");
             myRef.setValue(dataList);
         }
     };
