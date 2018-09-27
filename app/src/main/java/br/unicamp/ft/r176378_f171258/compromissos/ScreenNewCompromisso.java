@@ -25,13 +25,11 @@ public class ScreenNewCompromisso extends Fragment {
     EditText editTitulo;
     EditText editTime;
     Button btnSave;
-    RadioButton radioAm;
+    RadioButton radio;
     RadioButton radioPm;
     RadioGroup radioGroup;
     CheckBox chkImportante;
     DatePicker datePicker;
-
-
 
     public ScreenNewCompromisso() {
         // Required empty public constructor
@@ -47,7 +45,7 @@ public class ScreenNewCompromisso extends Fragment {
                             editTitulo.getText().toString(),
                             datePicker.getDayOfMonth()+ "/"+ datePicker.getMonth() + "/" + datePicker.getYear(),
 
-                            editTime.getText().toString() + " "+radioGroup.getCheckedRadioButtonId()));
+                            editTime.getText().toString() + " "+radio.getText().toString()));
         }
     };
 
@@ -63,12 +61,12 @@ public class ScreenNewCompromisso extends Fragment {
         btnSave = (Button) view.findViewById(R.id.btnSave);
         chkImportante = view.findViewById(R.id.checkboxImportante);
         editTitulo = view.findViewById(R.id.editText_titulo);
-        radioAm = view.findViewById(R.id.AM);
+        radioGroup = view.findViewById(R.id.radio_group);
+        radio = view.findViewById(radioGroup.getCheckedRadioButtonId());
         radioPm= view.findViewById(R.id.PM);
         btnSave.setOnClickListener(btnListener);
         datePicker = view.findViewById(R.id.datePicker);
         editTime = view.findViewById(R.id.editText_horario);
-        radioGroup = view.findViewById(R.id.radio_group);
         return view;
 
     }
