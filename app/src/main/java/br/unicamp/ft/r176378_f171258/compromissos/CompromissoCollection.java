@@ -1,9 +1,12 @@
 package br.unicamp.ft.r176378_f171258.compromissos;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class CompromissoCollection {
-
     private static CompromissoCollection compromissos;
 
     private static ArrayList<Compromisso> comprimissoList= new ArrayList<>();
@@ -18,7 +21,8 @@ public class CompromissoCollection {
     }
 
     private CompromissoCollection() {
-        this.comprimissoList = comprimissoList;
+
+
     }
 
 

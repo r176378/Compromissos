@@ -16,6 +16,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -39,13 +44,16 @@ public class ScreenNewCompromisso extends Fragment {
 
         @Override
         public void onClick(View v) {
-            CompromissoCollection.getInstance()
-                    .getComprimissoList()
-                    .add(new Compromisso(
+           ArrayList<Compromisso> dataList =  CompromissoCollection.getInstance()
+                    .getComprimissoList();
+            dataList.add(new Compromisso(
                             editTitulo.getText().toString(),
                             datePicker.getDayOfMonth()+ "/"+ datePicker.getMonth() + "/" + datePicker.getYear(),
 
                             editTime.getText().toString() + " "+radio.getText().toString()));
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference("message");
+            myRef.setValue(dataList);
         }
     };
 
