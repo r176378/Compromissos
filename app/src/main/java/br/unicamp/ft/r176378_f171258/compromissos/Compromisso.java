@@ -5,7 +5,7 @@ public class Compromisso {
     String date;
     String time;
 
-    public Compromisso( String time,  String date, String title) {
+    public Compromisso( String title, String date, String time) {
         this.title = title;
         this.date = date;
         this.time = time;

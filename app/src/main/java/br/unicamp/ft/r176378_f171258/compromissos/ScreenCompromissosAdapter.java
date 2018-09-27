@@ -15,36 +15,20 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 
-public class ScreenCompromissosAdapter extends RecyclerView.Adapter{
-    private ArrayList<Compromisso> compromissoCollection;
+public class ScreenCompromissosAdapter extends RecyclerView.Adapter implements Observer{
+    private CompromissoCollection compromissoCollection = CompromissoCollection.getInstance();
 
 
-
-    ScreenCompromissosAdapter(ArrayList<Compromisso> compromissos){
-        this.compromissoCollection =compromissos;
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference();
-        databaseReference.child("compromissos").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Iterable<DataSnapshot> dbCompromissos = dataSnapshot.getChildren();
-                for (DataSnapshot compromisso: dbCompromissos) {
-                    compromissoCollection.add(compromisso.getValue(Compromisso.class));
-                }
-                notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+    //Observa ComprimissosCollection, que maneja os dados e conexao com o banco
+    ScreenCompromissosAdapter(){
+        compromissoCollection.addObserver(this);
     }
 
     private void deleteCompromisso(int position){
-        CompromissoCollection.getInstance().getComprimissoList().remove(position);
-        notifyDataSetChanged();
+        CompromissoCollection.getInstance().removeCompromisso(position);
     }
 
 
@@ -61,20 +45,24 @@ public class ScreenCompromissosAdapter extends RecyclerView.Adapter{
             }
         });
 
-
-
         return new CardCompromissoHolder(v);
         }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        final Compromisso compromisso = compromissoCollection.get(i);
+        final Compromisso compromisso = compromissoCollection.getCompromisso(i);
         ((CardCompromissoHolder) viewHolder).bind(compromisso);
     }
 
     @Override
     public int getItemCount() {
-        return compromissoCollection.size();
+        return compromissoCollection.getSize();
+    }
+
+    //Observa Compromisso colection
+    @Override
+    public void update(Observable o, Object arg) {
+        notifyDataSetChanged();
     }
 
     class CardCompromissoHolder extends RecyclerView.ViewHolder{

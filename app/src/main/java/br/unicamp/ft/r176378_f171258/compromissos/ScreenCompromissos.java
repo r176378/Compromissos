@@ -26,8 +26,6 @@ import java.util.ArrayList;
 public class ScreenCompromissos extends Fragment {
 
 
-    private RecyclerView mRecyclerView;
-    private ScreenCompromissosAdapter screenCompromissosAdapter;
     public ScreenCompromissos() {
         // Required empty public constructor
     }
@@ -49,12 +47,10 @@ public class ScreenCompromissos extends Fragment {
     @Override
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mRecyclerView = getView().findViewById(R.id.compromissosRecycler);
+        RecyclerView mRecyclerView = getView().findViewById(R.id.compromissosRecycler);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-
-        screenCompromissosAdapter = new ScreenCompromissosAdapter(CompromissoCollection.getInstance().getComprimissoList());
+        ScreenCompromissosAdapter screenCompromissosAdapter = new ScreenCompromissosAdapter();
         mRecyclerView.setAdapter(screenCompromissosAdapter);
     }
 }

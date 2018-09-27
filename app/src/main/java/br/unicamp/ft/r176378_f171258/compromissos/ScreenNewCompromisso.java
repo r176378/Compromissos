@@ -44,16 +44,11 @@ public class ScreenNewCompromisso extends Fragment {
 
         @Override
         public void onClick(View v) {
-           ArrayList<Compromisso> dataList =  CompromissoCollection.getInstance()
-                    .getComprimissoList();
-            dataList.add(new Compromisso(
+            CompromissoCollection.getInstance().addCompromisso(new Compromisso(
                             editTitulo.getText().toString(),
                             datePicker.getDayOfMonth()+ "/"+ datePicker.getMonth() + "/" + datePicker.getYear(),
 
                             editTime.getText().toString() + " "+radio.getText().toString()));
-            FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference myRef = database.getReference("compromissos");
-            myRef.setValue(dataList);
         }
     };
 
@@ -66,7 +61,7 @@ public class ScreenNewCompromisso extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_screen_new_compromisso, container, false);
 
-        btnSave = (Button) view.findViewById(R.id.btnSave);
+        btnSave = view.findViewById(R.id.btnSave);
         chkImportante = view.findViewById(R.id.checkboxImportante);
         editTitulo = view.findViewById(R.id.editText_titulo);
         radioGroup = view.findViewById(R.id.radio_group);
