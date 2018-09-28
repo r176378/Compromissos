@@ -71,18 +71,28 @@ public class ScreenCompromissosAdapter extends RecyclerView.Adapter implements O
         private TextView titulo;
         private TextView data;
         private TextView horario;
+        private TextView type;
+        private TextView importancy;
         CardCompromissoHolder(@NonNull View itemView) {
             super(itemView);
             cardContainer=itemView.findViewById(R.id.container_card_compromisso);
             titulo = itemView.findViewById(R.id.compromisso_titulo);
             data = itemView.findViewById(R.id.compromisso_data);
             horario = itemView.findViewById(R.id.compromisso_hora);
+            type = itemView.findViewById(R.id.compromisso_type);
+            importancy = itemView.findViewById(R.id.compromisso_important);
         }
 
         void bind(final Compromisso compromisso){
             titulo.setText(compromisso.getTitle());
             data.setText(compromisso.getDate());
             horario.setText(compromisso.getTime());
+            type.setText(compromisso.getType());
+            if(!compromisso.getImportant()){
+                importancy.setAlpha(0);
+            }
+
+
         }
 
     }

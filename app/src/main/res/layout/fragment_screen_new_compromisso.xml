@@ -81,7 +81,7 @@
         android:layout_gravity="center"
         >
         <Spinner
-        android:id="@+id/spinnerMonth"
+        android:id="@+id/spinnerType"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:entries="@array/tipo"

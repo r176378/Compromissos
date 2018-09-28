@@ -14,6 +14,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -35,6 +36,7 @@ public class ScreenNewCompromisso extends Fragment {
     RadioGroup radioGroup;
     CheckBox chkImportante;
     DatePicker datePicker;
+    Spinner mSpinner;
 
     public ScreenNewCompromisso() {
         // Required empty public constructor
@@ -48,7 +50,7 @@ public class ScreenNewCompromisso extends Fragment {
                             editTitulo.getText().toString(),
                             datePicker.getDayOfMonth()+ "/"+ datePicker.getMonth() + "/" + datePicker.getYear(),
 
-                            editTime.getText().toString() + " "+radio.getText().toString()));
+                            editTime.getText().toString() + " "+radio.getText().toString(), mSpinner.getSelectedItem().toString(),chkImportante.isChecked()));
         }
     };
 
@@ -70,6 +72,7 @@ public class ScreenNewCompromisso extends Fragment {
         btnSave.setOnClickListener(btnListener);
         datePicker = view.findViewById(R.id.datePicker);
         editTime = view.findViewById(R.id.editText_horario);
+        mSpinner = view.findViewById(R.id.spinnerType);
         return view;
 
     }

@@ -5,29 +5,56 @@
     android:id="@+id/container_card_compromisso"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    >
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="TODO titulo"
-        android:id="@+id/compromisso_titulo"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="TODO data"
-        android:id="@+id/compromisso_data"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="TODO horario"
-        android:id="@+id/compromisso_hora"/>
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="3">
+
+        <TextView
+            android:id="@+id/compromisso_titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="TODO titulo" />
+
+        <TextView
+            android:id="@+id/compromisso_important"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_row="0"
+            android:gravity="end"
+            android:paddingLeft="60dp"
+            android:text="Important!"
+            android:textColor="#f00" />
+
+        <TextView
+            android:id="@+id/compromisso_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TODO data" />
+
+        <TextView
+            android:id="@+id/compromisso_type"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="end"
+            android:paddingLeft="60dp"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/compromisso_hora"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="TODO horario" />
+
+    </GridLayout>
+
 
 </LinearLayout>
