@@ -1,13 +1,16 @@
 package br.unicamp.ft.r176378_f171258.compromissos;
 
 public class Compromisso {
-    String title;
-    String date;
-    String time;
-    Boolean isImportant;
-    String type;
+    private String title;
+    private String date;
+    private String time;
+    private Boolean isImportant;
+    private String type;
 
-    public Boolean getImportant() {
+    public Boolean getImportancy() {
+        if (isImportant == null){
+            return false;
+        }
         return isImportant;
     }
 
@@ -25,11 +28,11 @@ public class Compromisso {
 
 
 
-    public Compromisso( String title, String date, String time,  String type, Boolean importancia) {
+    public Compromisso( String title, String date, String time,  String type, Boolean importancy) {
         this.title = title;
         this.date = date;
         this.time = time;
-        this.isImportant = importancia;
+        this.isImportant = importancy;
         this.type = type;
     }
 

@@ -88,7 +88,7 @@ public class ScreenCompromissosAdapter extends RecyclerView.Adapter implements O
             data.setText(compromisso.getDate());
             horario.setText(compromisso.getTime());
             type.setText(compromisso.getType());
-            if(!compromisso.getImportant()){
+            if(!compromisso.getImportancy()){
                 importancy.setAlpha(0);
             }
 
