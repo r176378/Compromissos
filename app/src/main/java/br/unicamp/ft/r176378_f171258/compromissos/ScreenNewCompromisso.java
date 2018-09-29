@@ -48,7 +48,7 @@ public class ScreenNewCompromisso extends Fragment {
         public void onClick(View v) {
             CompromissoCollection.getInstance().addCompromisso(new Compromisso(
                             editTitulo.getText().toString(),
-                            datePicker.getDayOfMonth()+ "/"+ datePicker.getMonth() + "/" + datePicker.getYear(),
+                            datePicker.getDayOfMonth()+ "/"+ (datePicker.getMonth()+1) + "/" + datePicker.getYear(),
 
                             editTime.getText().toString() + " "+radio.getText().toString(), mSpinner.getSelectedItem().toString(),chkImportante.isChecked()));
         }

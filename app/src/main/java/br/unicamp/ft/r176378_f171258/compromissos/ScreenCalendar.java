@@ -69,11 +69,33 @@ public class ScreenCalendar extends Fragment {
         }
         days[today.getDayOfMonth()+ numFirstDay-1].setBackground(getActivity().getResources().getDrawable(R.drawable.circle));
         days[today.getDayOfMonth()+ numFirstDay-1].setTextColor(Color.WHITE);
+        String dateCompromisso;
+        int size =  CompromissoCollection.getInstance().getSize();
+        for (int i = 0; i<size; i++){
+            dateCompromisso = CompromissoCollection.getInstance().getCompromisso(i).getDate();
+            String date[] = dateCompromisso.split("/");
+            dateCompromisso= dateCompromisso.substring(0, 2);
 
+
+
+            if (dateCompromisso.substring(1,2).equals("/")){
+                dateCompromisso=dateCompromisso.substring(0,1);
+            }
+
+
+
+            if (Integer.parseInt(date[1]) == today.getMonthValue()){
+                if(Integer.parseInt(dateCompromisso) != today.getDayOfMonth()) {
+                    days[Integer.parseInt(date[0]) + numFirstDay - 1].setBackground(getActivity().getResources().getDrawable(R.drawable.retangle));
+                }
+            }
+
+        }
         for (Integer day=1; day<= lastDay; day ++) {
                     days[numFirstDay].setText(day.toString());
                     numFirstDay++;
                 }
+
 
         return view;
     }
