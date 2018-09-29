@@ -7,6 +7,17 @@ public class Compromisso {
     private Boolean isImportant;
     private String type;
 
+    public Compromisso(String title, String date, String time, String type, Boolean importancy) {
+        this.title = title;
+        this.date = date;
+        this.time = time;
+        this.isImportant = importancy;
+        this.type = type;
+    }
+
+    public Compromisso() {
+    }
+
     public Boolean getImportance() {
         return isImportant;
     }
@@ -22,18 +33,6 @@ public class Compromisso {
     public void setType(String type) {
         this.type = type;
     }
-
-
-
-    public Compromisso( String title, String date, String time,  String type, Boolean importancy) {
-        this.title = title;
-        this.date = date;
-        this.time = time;
-        this.isImportant = importancy;
-        this.type = type;
-    }
-
-    public Compromisso(){}
 
     public String getTitle() {
         return title;

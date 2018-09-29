@@ -15,12 +15,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.Toast;
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
 
 
 /**
@@ -37,25 +31,21 @@ public class ScreenNewCompromisso extends Fragment {
     CheckBox chkImportante;
     DatePicker datePicker;
     Spinner mSpinner;
-
-    public ScreenNewCompromisso() {
-        // Required empty public constructor
-    }
-
     View.OnClickListener btnListener = new View.OnClickListener() {
 
         @Override
         public void onClick(View v) {
             CompromissoCollection.getInstance().addCompromisso(new Compromisso(
-                            editTitulo.getText().toString(),
-                            datePicker.getDayOfMonth()+ "/"+ (datePicker.getMonth()+1) + "/" + datePicker.getYear(),
+                    editTitulo.getText().toString(),
+                    datePicker.getDayOfMonth() + "/" + (datePicker.getMonth() + 1) + "/" + datePicker.getYear(),
 
-                            editTime.getText().toString() + " "+radio.getText().toString(), mSpinner.getSelectedItem().toString(),chkImportante.isChecked()));
+                    editTime.getText().toString() + " " + radio.getText().toString(), mSpinner.getSelectedItem().toString(), chkImportante.isChecked()));
         }
     };
 
-
-
+    public ScreenNewCompromisso() {
+        // Required empty public constructor
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,7 +58,7 @@ public class ScreenNewCompromisso extends Fragment {
         editTitulo = view.findViewById(R.id.editText_titulo);
         radioGroup = view.findViewById(R.id.radio_group);
         radio = view.findViewById(radioGroup.getCheckedRadioButtonId());
-        radioPm= view.findViewById(R.id.PM);
+        radioPm = view.findViewById(R.id.PM);
         btnSave.setOnClickListener(btnListener);
         datePicker = view.findViewById(R.id.datePicker);
         editTime = view.findViewById(R.id.editText_horario);

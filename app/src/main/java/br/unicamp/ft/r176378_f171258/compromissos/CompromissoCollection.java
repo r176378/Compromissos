@@ -5,36 +5,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.Observable;
 
 
-public class CompromissoCollection extends Observable{
+public class CompromissoCollection extends Observable {
+    private static CompromissoCollection compromissos;
+    private static ArrayList<Compromisso> comprimissoList = new ArrayList<>();
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
-    private static CompromissoCollection compromissos;
-
-    private static ArrayList<Compromisso> comprimissoList= new ArrayList<>();
-
-    public void removeCompromisso(int position){
-        comprimissoList.remove(position);
-        databaseReference.setValue(comprimissoList);
-        setChanged();
-        notifyObservers();
-    }
-
-    public void addCompromisso(Compromisso compromisso){
-        comprimissoList.add(compromisso);
-        databaseReference.setValue(comprimissoList);
-    }
-
-    public Compromisso getCompromisso(int position){
-        return comprimissoList.get(position);
-    }
-
-    public int getSize(){
-        return comprimissoList.size();
-    }
 
     private CompromissoCollection() {
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -42,7 +22,7 @@ public class CompromissoCollection extends Observable{
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Iterable<DataSnapshot> dbCompromissos = dataSnapshot.getChildren();
                 comprimissoList.clear();
-                for (DataSnapshot compromisso: dbCompromissos) {
+                for (DataSnapshot compromisso : dbCompromissos) {
                     comprimissoList.add(compromisso.getValue(Compromisso.class));
                 }
                 setChanged();
@@ -58,12 +38,31 @@ public class CompromissoCollection extends Observable{
 
     }
 
-
     public static synchronized CompromissoCollection getInstance() {
-        if (compromissos == null){
+        if (compromissos == null) {
             compromissos = new CompromissoCollection();
         }
         return compromissos;
+    }
+
+    public void removeCompromisso(int position) {
+        comprimissoList.remove(position);
+        databaseReference.setValue(comprimissoList);
+        setChanged();
+        notifyObservers();
+    }
+
+    public void addCompromisso(Compromisso compromisso) {
+        comprimissoList.add(compromisso);
+        databaseReference.setValue(comprimissoList);
+    }
+
+    public Compromisso getCompromisso(int position) {
+        return comprimissoList.get(position);
+    }
+
+    public int getSize() {
+        return comprimissoList.size();
     }
 
 }

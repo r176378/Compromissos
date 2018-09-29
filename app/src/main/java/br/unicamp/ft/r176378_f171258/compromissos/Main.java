@@ -2,10 +2,9 @@ package br.unicamp.ft.r176378_f171258.compromissos;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class Main extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -32,10 +32,9 @@ public class Main extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               screenNewCompromisso();
+                screenNewCompromisso();
             }
         });
-
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -86,7 +85,7 @@ public class Main extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    private void screenNewCompromisso(){
+    private void screenNewCompromisso() {
         FragmentTransaction ftrans = fragmentManager.beginTransaction();
         ScreenNewCompromisso screenNewCompromisso = new ScreenNewCompromisso();
         ftrans.replace(R.id.mainContainer, screenNewCompromisso, "screenNewCompromissos");
@@ -94,7 +93,7 @@ public class Main extends AppCompatActivity
         ftrans.commit();
     }
 
-    private void screenCalendar(){
+    private void screenCalendar() {
         FragmentTransaction ftrans = fragmentManager.beginTransaction();
         ScreenCalendar screenCalendar = new ScreenCalendar();
         ftrans.replace(R.id.mainContainer, screenCalendar, "screenCalendar");
