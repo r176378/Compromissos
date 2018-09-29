@@ -86,17 +86,23 @@ public class ScreenCalendar extends Fragment {
 
             if (Integer.parseInt(date[1]) == today.getMonthValue()){
                 if(Integer.parseInt(dateCompromisso) != today.getDayOfMonth()) {
-                    days[Integer.parseInt(date[0]) + numFirstDay - 1].setBackground(getActivity().getResources().getDrawable(R.drawable.retangle));
+                    if(CompromissoCollection.getInstance().getCompromisso(i).getImportance()){
+                        days[Integer.parseInt(date[0]) + numFirstDay - 1].setTextColor(Color.RED);
+                        days[Integer.parseInt(date[0]) + numFirstDay - 1].setBackground(getActivity().getResources().getDrawable(R.drawable.retangle_important));
+                    } else {
+                        days[Integer.parseInt(date[0]) + numFirstDay - 1].setTextColor(Color.BLUE);
+                        days[Integer.parseInt(date[0]) + numFirstDay - 1].setBackground(getActivity().getResources().getDrawable(R.drawable.retangle_compromisso));
+                    }
+
                 }
             }
 
         }
+
         for (Integer day=1; day<= lastDay; day ++) {
-                    days[numFirstDay].setText(day.toString());
-                    numFirstDay++;
-                }
-
-
+            days[numFirstDay].setText(day.toString());
+            numFirstDay++;
+        }
         return view;
     }
 
