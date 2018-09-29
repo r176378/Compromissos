@@ -94,6 +94,14 @@ public class Main extends AppCompatActivity
         ftrans.commit();
     }
 
+    private void screenCalendar(){
+        FragmentTransaction ftrans = fragmentManager.beginTransaction();
+        ScreenCalendar screenCalendar = new ScreenCalendar();
+        ftrans.replace(R.id.mainContainer, screenCalendar, "screenCalendar");
+        ftrans.addToBackStack("screenCalendar");
+        ftrans.commit();
+    }
+
     private void screenCompromissos() {
         FragmentTransaction ftrans = fragmentManager.beginTransaction();
         ScreenCompromissos screenCompromissos = new ScreenCompromissos();
@@ -111,7 +119,7 @@ public class Main extends AppCompatActivity
         if (id == R.id.nav_camera) {
             screenCompromissos();
         } else if (id == R.id.nav_gallery) {
-
+            screenCalendar();
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {

@@ -7,15 +7,12 @@ public class Compromisso {
     private Boolean isImportant;
     private String type;
 
-    public Boolean getImportancy() {
-        if (isImportant == null){
-            return false;
-        }
+    public Boolean getImportance() {
         return isImportant;
     }
 
-    public void setImportancy(Boolean importancy) {
-        this.isImportant = importancy;
+    public void setImportance(Boolean importance) {
+        this.isImportant = importance;
     }
 
     public String getType() {
