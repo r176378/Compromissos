@@ -1,0 +1,58 @@
+{
+  "project_info": {
+    "project_number": "756634259460",
+    "firebase_url": "https://compromissos-76e45.firebaseio.com",
+    "project_id": "compromissos-76e45",
+    "storage_bucket": "compromissos-76e45.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:756634259460:android:266cd5590f133ba2",
+        "android_client_info": {
+          "package_name": "br.unicamp.ft.r176378_f171258.compromissos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "756634259460-287ckgotpnt0bvc9msgiv4kqajvtiaqu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.unicamp.ft.r176378_f171258.compromissos",
+            "certificate_hash": "7c933c5b62de776eb48e54fb256edf79b9fcce98"
+          }
+        },
+        {
+          "client_id": "756634259460-9720m420q6jpj8ftrdu63i1nv9vvlskl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCmU23dUH9EwQqzSlMncvHnyM_1kA4Nek"
+        },
+        {
+          "current_key": "AIzaSyDCmU23dUH9EwQqzSlMncvHnyM_1kA4Nek"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "756634259460-9720m420q6jpj8ftrdu63i1nv9vvlskl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
