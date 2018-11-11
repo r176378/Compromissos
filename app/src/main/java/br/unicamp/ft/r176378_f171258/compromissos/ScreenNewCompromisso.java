@@ -31,8 +31,6 @@ public class ScreenNewCompromisso extends Fragment {
     EditText editTitulo;
     TextView editTime;
     Button btnSave;
-    RadioButton radio;
-    RadioButton radioPm;
     RadioGroup radioGroup;
     CheckBox chkImportante;
     DatePicker datePicker;
@@ -46,7 +44,7 @@ public class ScreenNewCompromisso extends Fragment {
             if (editTime.getText().toString().equals("")){
                 mTime = "";
             }else{
-                mTime = editTime.getText().toString() + " " + radio.getText().toString();
+                mTime = editTime.getText().toString();
             }
             CompromissoCollection.getInstance().addCompromisso(new Compromisso(
                     editTitulo.getText().toString(),
@@ -69,7 +67,7 @@ public class ScreenNewCompromisso extends Fragment {
         Calendar mcurrentTime = Calendar.getInstance();
         int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
         int minute = mcurrentTime.get(Calendar.MINUTE);
-        TimePickerDialog mTimePicker = new TimePickerDialog(getContext(), mTimeSetListener, hour, minute, false);
+        TimePickerDialog mTimePicker = new TimePickerDialog(getContext(), mTimeSetListener, hour, minute, true);
         mTimePicker.setTitle("Select Time");
         mTimePicker.show();
     };
@@ -86,9 +84,6 @@ public class ScreenNewCompromisso extends Fragment {
         btnSave = view.findViewById(R.id.btnSave);
         chkImportante = view.findViewById(R.id.checkboxImportante);
         editTitulo = view.findViewById(R.id.editText_titulo);
-        radioGroup = view.findViewById(R.id.radio_group);
-        radio = view.findViewById(radioGroup.getCheckedRadioButtonId());
-        radioPm = view.findViewById(R.id.PM);
         btnSave.setOnClickListener(btnListener);
         datePicker = view.findViewById(R.id.datePicker);
         editTime = view.findViewById(R.id.editTime);

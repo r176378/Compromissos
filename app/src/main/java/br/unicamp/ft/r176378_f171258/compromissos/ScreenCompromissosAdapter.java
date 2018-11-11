@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -66,7 +67,7 @@ public class ScreenCompromissosAdapter extends RecyclerView.Adapter implements O
         private TextView data;
         private TextView horario;
         private TextView type;
-        private TextView importancy;
+        private ImageView importancy;
 
         CardCompromissoHolder(@NonNull View itemView) {
             super(itemView);
@@ -75,7 +76,7 @@ public class ScreenCompromissosAdapter extends RecyclerView.Adapter implements O
             data = itemView.findViewById(R.id.compromisso_data);
             horario = itemView.findViewById(R.id.compromisso_hora);
             type = itemView.findViewById(R.id.compromisso_type);
-            importancy = itemView.findViewById(R.id.compromisso_important);
+            importancy = itemView.findViewById(R.id.isImportant);
         }
 
         void bind(final Compromisso compromisso) {
@@ -83,8 +84,8 @@ public class ScreenCompromissosAdapter extends RecyclerView.Adapter implements O
             data.setText(compromisso.getDate());
             horario.setText(compromisso.getTime());
             type.setText(compromisso.getType());
-            if (!compromisso.getImportance()) {
-                importancy.setAlpha(0);
+            if (compromisso.getImportance()) {
+                importancy.setVisibility(View.VISIBLE);
             }
 
 

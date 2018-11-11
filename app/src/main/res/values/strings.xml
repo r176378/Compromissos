@@ -9,8 +9,8 @@
     <string name="flecha_direita">&lt;--- </string>
     <string name="flecha_esquerda">---&gt; </string>
     <string-array name="tipo">
-        <item>Profissional</item>
-        <item>Pessoal</item>
+        <item>Professional</item>
+        <item>Personal</item>
 
 
     </string-array>

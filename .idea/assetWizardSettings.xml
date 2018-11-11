@@ -18,12 +18,24 @@
                                 <PersistentState>
                                   <option name="children">
                                     <map>
+                                      <entry key="clipArt">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="paddingPercent" value="5" />
+                                                <entry key="trimmed" value="true" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
                                       <entry key="clipartAsset">
                                         <value>
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/content/ic_clear_black_24dp.xml" />
+                                                <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/alert/ic_error_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -44,8 +56,21 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="imageAsset" value="C:\Users\ranie\Pictures\blue-x-jpeg.jpg" />
+                                      <entry key="imageAsset" value="C:\Users\ranie\Pictures\if_slice325_2835413.svg" />
                                       <entry key="outputName" value="important-event" />
+                                      <entry key="theme" value="CUSTOM" />
+                                      <entry key="themeColor" value="e52217" />
+                                    </map>
+                                  </option>
+                                </PersistentState>
+                              </value>
+                            </entry>
+                            <entry key="notification">
+                              <value>
+                                <PersistentState>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="assetType" value="IMAGE" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -81,7 +106,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/content/ic_add_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/alert/ic_error_outline_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -91,7 +116,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_add_black_24dp" />
+                            <entry key="color" value="e52217" />
+                            <entry key="outputName" value="isimportant" />
                             <entry key="sourceFile" value="C:\Users\ranie" />
                           </map>
                         </option>

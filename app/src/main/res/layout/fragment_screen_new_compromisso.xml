@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText_titulo"
-        android:hint="Titulo"
+        android:hint="Title"
         android:layout_marginBottom="10dp"
       />
 
@@ -30,41 +30,22 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="2"
-        android:rowCount="1"
+        android:layout_gravity="center"
         android:layout_marginBottom="10dp"
-        android:layout_gravity="center">
+        android:columnCount="2"
+        android:minHeight="30dp"
+        android:rowCount="1">
 
-        <RadioGroup
-        android:id="@+id/radio_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_above="@+id/view_below" >
-
-            <TextView
-                android:id="@+id/editTime"
-                android:layout_width="79dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="00:00" />
-
-            <RadioButton
-            android:id="@+id/AM"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
+        <TextView
+            android:id="@+id/editTime"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="AM"
-            android:layout_marginRight="30dp"/>
-
-        <RadioButton
-            android:id="@+id/PM"
-            android:layout_width="wrap_content"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="PM" />
-    </RadioGroup>
+            android:scaleX="2"
+            android:scaleY="2"
+            android:text="00:00"
+            android:textAlignment="center" />
+
     </GridLayout>
 
     <!-- TODO: Update blank fragment layout -->
@@ -81,19 +62,26 @@
         android:rowCount="1"
         android:layout_gravity="center"
         >
+
         <Spinner
-        android:id="@+id/spinnerType"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:entries="@array/tipo"
-        android:layout_gravity="center"
-        >
-    </Spinner>
+            android:id="@+id/spinnerType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:entries="@array/tipo"
+            android:gravity="right"></Spinner>
+
         <CheckBox
-        android:id="@+id/checkboxImportante"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Importante" />
+            android:id="@+id/checkboxImportante"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:paddingRight="10dp"
+            android:text="Important"
+            android:textAlignment="inherit" />
       </GridLayout>
 
 
@@ -104,7 +92,7 @@
         android:id="@+id/btnSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Salvar"
+        android:text="Save"
         android:layout_marginTop="15dp"/>
 
 

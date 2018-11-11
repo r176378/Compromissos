@@ -12,32 +12,36 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <!-- TODO: Update blank fragment layout -->
+
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="2"
+        android:columnCount="3"
         android:rowCount="3">
+
+        <ImageView
+            android:id="@+id/isImportant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_rowSpan="2"
+            android:layout_weight="1"
+            android:paddingTop="6dp"
+            android:paddingRight="5dp"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/isimportant" />
 
         <TextView
             android:id="@+id/compromisso_titulo"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:minWidth="100dp"
             android:text="TODO titulo" />
-
-        <TextView
-            android:id="@+id/compromisso_important"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_row="0"
-            android:gravity="end"
-            android:paddingLeft="60dp"
-            android:text="Important!"
-            android:textColor="#f00" />
 
         <TextView
             android:id="@+id/compromisso_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
             android:text="TODO data" />
 
         <TextView
@@ -45,13 +49,13 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="end"
-            android:paddingLeft="60dp"
             android:text="" />
 
         <TextView
             android:id="@+id/compromisso_hora"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:paddingLeft="47dp"
             android:text="TODO horario" />
 
     </GridLayout>
