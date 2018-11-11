@@ -39,13 +39,10 @@ public class ScreenCalendar extends Fragment {
         TextView mounth = view.findViewById(R.id.nome_mes);
         mounth.setText(mounthName);
         numFirstDay = getNumFirstDay(numFirstDay, firstDay);
-
-
         getDayIDs(view);
         hideDaysNotInMonth(numFirstDay, lastDay);
         highlightCurrentDay(days[today.getDayOfMonth() + numFirstDay - 1]);
         highlightEvents(numFirstDay, today);
-
         setDayNumbersText(numFirstDay, lastDay);
         return view;
     }
@@ -108,19 +105,19 @@ public class ScreenCalendar extends Fragment {
     private int getNumFirstDay(int numFirstDay, DayOfWeek firstDay) {
         switch (firstDay) {
             case SUNDAY:
-                numFirstDay = 0;
+                numFirstDay = 0; break;
             case MONDAY:
-                numFirstDay = 1;
+                numFirstDay = 1; break;
             case TUESDAY:
-                numFirstDay = 2;
+                numFirstDay = 2; break;
             case WEDNESDAY:
-                numFirstDay = 3;
+                numFirstDay = 3; break;
             case THURSDAY:
-                numFirstDay = 4;
+                numFirstDay = 4; break;
             case FRIDAY:
-                numFirstDay = 5;
+                numFirstDay = 5; break;
             case SATURDAY:
-                numFirstDay = 6;
+                numFirstDay = 6; break;
         }
         return numFirstDay;
     }

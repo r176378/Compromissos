@@ -17,7 +17,6 @@ import android.view.View;
 public class Main extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-
     private FragmentManager fragmentManager;
 
 
@@ -28,14 +27,6 @@ public class Main extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                screenNewCompromisso();
-            }
-        });
-
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -45,7 +36,6 @@ public class Main extends AppCompatActivity
         fragmentManager = getSupportFragmentManager();
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
         FragmentTransaction ftrans = fragmentManager.beginTransaction();
         ScreenCompromissos screenCompromissos = new ScreenCompromissos();
         ftrans.replace(R.id.mainContainer, screenCompromissos, "screenCompromissos");
@@ -76,11 +66,6 @@ public class Main extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -119,15 +104,9 @@ public class Main extends AppCompatActivity
             screenCompromissos();
         } else if (id == R.id.nav_gallery) {
             screenCalendar();
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
+        } else if (id == R.id.nav_new) {
+        screenNewCompromisso();
+    }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

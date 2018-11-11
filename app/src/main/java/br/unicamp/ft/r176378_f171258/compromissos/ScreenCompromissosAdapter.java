@@ -13,7 +13,7 @@ import java.util.Observer;
 
 public class ScreenCompromissosAdapter extends RecyclerView.Adapter implements Observer {
     private CompromissoCollection compromissoCollection = CompromissoCollection.getInstance();
-
+    View v;
 
     //Observa ComprimissosCollection, que maneja os dados e conexao com o banco
     ScreenCompromissosAdapter() {
@@ -28,15 +28,9 @@ public class ScreenCompromissosAdapter extends RecyclerView.Adapter implements O
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, final int position) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(
+        v = LayoutInflater.from(parent.getContext()).inflate(
                 R.layout.fragment_card_compromisso, parent, false);
-        v.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                deleteCompromisso(position);
-                return true;
-            }
-        });
+
 
         return new CardCompromissoHolder(v);
     }
@@ -45,6 +39,13 @@ public class ScreenCompromissosAdapter extends RecyclerView.Adapter implements O
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         final Compromisso compromisso = compromissoCollection.getCompromisso(i);
         ((CardCompromissoHolder) viewHolder).bind(compromisso);
+        v.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                deleteCompromisso(viewHolder.getLayoutPosition());
+                return true;
+            }
+        });
     }
 
     @Override

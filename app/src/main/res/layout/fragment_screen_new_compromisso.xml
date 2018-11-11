@@ -34,21 +34,22 @@
         android:rowCount="1"
         android:layout_marginBottom="10dp"
         android:layout_gravity="center">
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText_horario"
-        android:minWidth="170dp"
-        android:layout_marginRight="20dp"
-        android:hint="Horario"/>
-    <RadioGroup
+
+        <RadioGroup
         android:id="@+id/radio_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_above="@+id/view_below" >
 
-        <RadioButton
+            <TextView
+                android:id="@+id/editTime"
+                android:layout_width="79dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="00:00" />
+
+            <RadioButton
             android:id="@+id/AM"
             android:layout_width="wrap_content"
             android:layout_weight="1"
