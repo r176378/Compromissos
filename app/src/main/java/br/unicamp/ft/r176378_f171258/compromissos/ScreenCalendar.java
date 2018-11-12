@@ -19,7 +19,7 @@ import java.time.LocalDate;
  */
 public class ScreenCalendar extends Fragment {
 
-
+    LocalDate today;
     TextView days[];
 
     public ScreenCalendar() {
@@ -32,7 +32,7 @@ public class ScreenCalendar extends Fragment {
         View view = inflater.inflate(R.layout.fragment_screen_calendar, container, false);
         days = new TextView[42];
         int numFirstDay = 0;
-        LocalDate today = LocalDate.now();
+        today = LocalDate.now();
         DayOfWeek firstDay = today.withDayOfMonth(1).getDayOfWeek();
         int lastDay = today.lengthOfMonth();
         String mounthName = today.getMonth().toString();
@@ -46,6 +46,13 @@ public class ScreenCalendar extends Fragment {
         setDayNumbersText(numFirstDay, lastDay);
         return view;
     }
+
+/*    public void next_month(){
+        Integer monthValue = today.getMonthValue();
+        LocalDate nextMonth = LocalDate.of(LocalDate.now().getYear(), monthValue, 1);
+        nextMonth.getDayOfWeek();
+        nextMonth.
+    }*/
 
     private void setDayNumbersText(int numFirstDay, int lastDay) {
         for (Integer day = 1; day <= lastDay; day++) {

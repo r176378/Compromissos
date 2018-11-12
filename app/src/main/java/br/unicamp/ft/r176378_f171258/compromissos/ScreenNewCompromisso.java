@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +38,7 @@ public class ScreenNewCompromisso extends Fragment {
     DatePicker datePicker;
     TimePicker timePicker;
     Spinner mSpinner;
+    FragmentManager fragmentManager;
     View.OnClickListener btnListener = new View.OnClickListener() {
 
         @Override
@@ -51,8 +54,17 @@ public class ScreenNewCompromisso extends Fragment {
                     datePicker.getDayOfMonth() + "/" + (datePicker.getMonth() + 1) + "/" + datePicker.getYear(),
 
                     mTime, mSpinner.getSelectedItem().toString(), chkImportante.isChecked()));
+                    screenCompromissos();
         }
     };
+
+    private void screenCompromissos() {
+        FragmentTransaction ftrans = fragmentManager.beginTransaction();
+        ScreenCompromissos screenCompromissos = new ScreenCompromissos();
+        ftrans.replace(R.id.mainContainer, screenCompromissos, "screenCompromissos");
+        ftrans.addToBackStack("screenCompromissos");
+        ftrans.commit();
+    }
 
     TimePickerDialog.OnTimeSetListener mTimeSetListener =
             new TimePickerDialog.OnTimeSetListener() {
@@ -80,6 +92,7 @@ public class ScreenNewCompromisso extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        fragmentManager = getActivity().getSupportFragmentManager();
         View view = inflater.inflate(R.layout.fragment_screen_new_compromisso, container, false);
         btnSave = view.findViewById(R.id.btnSave);
         chkImportante = view.findViewById(R.id.checkboxImportante);
