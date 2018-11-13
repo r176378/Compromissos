@@ -23,12 +23,13 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
+import java.util.Observer;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ScreenNewCompromisso extends Fragment {
+public class ScreenNewCompromisso extends Fragment{
 
     EditText editTitulo;
     TextView editTime;
@@ -49,14 +50,26 @@ public class ScreenNewCompromisso extends Fragment {
             }else{
                 mTime = editTime.getText().toString();
             }
-            CompromissoCollection.getInstance().addCompromisso(new Compromisso(
-                    editTitulo.getText().toString(),
-                    datePicker.getDayOfMonth() + "/" + (datePicker.getMonth() + 1) + "/" + datePicker.getYear(),
+            if ((Integer)getArguments().get("position") != -1 ){
+                CompromissoCollection.updateCompromisso((Integer)getArguments().get("position"), new Compromisso(
+                        editTitulo.getText().toString(),
+                        datePicker.getDayOfMonth() + "/" + (datePicker.getMonth() + 1) + "/" + datePicker.getYear(),
 
-                    mTime, mSpinner.getSelectedItem().toString(), chkImportante.isChecked()));
+                        mTime, mSpinner.getSelectedItem().toString(), chkImportante.isChecked()));
+            }else{
+
+                CompromissoCollection.getInstance().addCompromisso(new Compromisso(
+                        editTitulo.getText().toString(),
+                        datePicker.getDayOfMonth() + "/" + (datePicker.getMonth() + 1) + "/" + datePicker.getYear(),
+
+                        mTime, mSpinner.getSelectedItem().toString(), chkImportante.isChecked()));
+            }
+
                     screenCompromissos();
         }
     };
+
+
 
     private void screenCompromissos() {
         FragmentTransaction ftrans = fragmentManager.beginTransaction();
@@ -87,6 +100,8 @@ public class ScreenNewCompromisso extends Fragment {
     public ScreenNewCompromisso() {
         // Required empty public constructor
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

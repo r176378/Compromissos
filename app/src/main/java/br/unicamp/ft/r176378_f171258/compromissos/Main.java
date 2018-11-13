@@ -18,6 +18,7 @@ public class Main extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private FragmentManager fragmentManager;
+    private FragmentTransaction mFragmentTransaction;
 
 
     @Override
@@ -41,7 +42,10 @@ public class Main extends AppCompatActivity
         ftrans.replace(R.id.mainContainer, screenCompromissos, "screenCompromissos");
         ftrans.addToBackStack("screenCompromissos");
         ftrans.commit();
+        mFragmentTransaction = fragmentManager.beginTransaction();
+
     }
+
 
     @Override
     public void onBackPressed() {

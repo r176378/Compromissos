@@ -41,6 +41,9 @@ public class ScreenCompromissos extends Fragment {
         ScreenNewCompromisso screenNewCompromisso = new ScreenNewCompromisso();
         ftrans.replace(R.id.mainContainer, screenNewCompromisso, "screenNewCompromissos");
         ftrans.addToBackStack("screenNewCompromissos");
+        Bundle mBundle = new Bundle();
+        mBundle.putInt("position", -1);
+        screenNewCompromisso.setArguments(mBundle);
         ftrans.commit();
     }
 
@@ -57,7 +60,7 @@ public class ScreenCompromissos extends Fragment {
         });
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        ScreenCompromissosAdapter screenCompromissosAdapter = new ScreenCompromissosAdapter();
+        ScreenCompromissosAdapter screenCompromissosAdapter = new ScreenCompromissosAdapter(fragmentManager);
         mRecyclerView.setAdapter(screenCompromissosAdapter);
     }
 }

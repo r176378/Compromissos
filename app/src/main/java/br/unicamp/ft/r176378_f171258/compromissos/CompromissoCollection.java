@@ -42,6 +42,10 @@ public class CompromissoCollection extends Observable {
 
     }
 
+    public static void updateCompromisso(Integer position,Compromisso compromisso ){
+        comprimissoList.set(position, compromisso);
+    }
+
     public static synchronized CompromissoCollection getInstance() {
         if (compromissos == null) {
             compromissos = new CompromissoCollection();
@@ -55,6 +59,7 @@ public class CompromissoCollection extends Observable {
         setChanged();
         notifyObservers();
     }
+
 
     public void addCompromisso(Compromisso compromisso) {
         comprimissoList.add(compromisso);
