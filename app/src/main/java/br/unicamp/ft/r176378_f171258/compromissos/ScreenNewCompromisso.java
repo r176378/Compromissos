@@ -22,6 +22,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Observer;
 
@@ -64,7 +65,6 @@ public class ScreenNewCompromisso extends Fragment{
 
                         mTime, mSpinner.getSelectedItem().toString(), chkImportante.isChecked()));
             }
-
                     screenCompromissos();
         }
     };
@@ -117,6 +117,21 @@ public class ScreenNewCompromisso extends Fragment{
         editTime = view.findViewById(R.id.editTime);
         editTime.setOnClickListener(this.timeListener);
         mSpinner = view.findViewById(R.id.spinnerType);
+        if ((Integer)getArguments().get("position") != -1){
+            CompromissoCollection compromissoCollection = CompromissoCollection.getInstance();
+            Compromisso compromisso = compromissoCollection.getCompromisso((Integer)getArguments().get("position"));
+            if (compromisso.getImportance()){
+                chkImportante.setChecked(true);
+            }
+            String[] arrayString = compromisso.getDate().split("/");
+            datePicker.updateDate(Integer.parseInt(arrayString[2]), Integer.parseInt(arrayString[1]), Integer.parseInt(arrayString[0]));
+            editTitulo.setText(compromisso.getTitle());
+            editTime.setText(compromisso.getTime());
+            String compromissoType = compromisso.getType();
+            if (!mSpinner.getSelectedItem().toString().equals(compromissoType)){
+                mSpinner.setSelection(1);
+            }
+        }
         return view;
     }
 
