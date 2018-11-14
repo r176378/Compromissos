@@ -125,7 +125,7 @@ public class ScreenNewCompromisso extends Fragment{
                 chkImportante.setChecked(true);
             }
             String[] arrayString = compromisso.getDate().split("/");
-            datePicker.updateDate(Integer.parseInt(arrayString[2]), Integer.parseInt(arrayString[1]), Integer.parseInt(arrayString[0]));
+            datePicker.updateDate(Integer.parseInt((arrayString[2])  ), Integer.parseInt(arrayString[1])-1, Integer.parseInt(arrayString[0]));
             editTitulo.setText(compromisso.getTitle());
             editTime.setText(compromisso.getTime());
             String compromissoType = compromisso.getType();

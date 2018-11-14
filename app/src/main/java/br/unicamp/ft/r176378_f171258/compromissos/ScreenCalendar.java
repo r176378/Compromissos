@@ -94,17 +94,20 @@ public class ScreenCalendar extends Fragment {
         int size = CompromissoCollection.getInstance().getSize();
         for (int i = 0; i < size; i++) {
             String[] date = getSplitDate(i);
-            if (Integer.parseInt(date[1]) == today.getMonthValue()) {
-                if (Integer.parseInt(date[0]) != today.getDayOfMonth()) {
-                    if (CompromissoCollection.getInstance().getCompromisso(i).getImportance()) {
-                        days[Integer.parseInt(date[0]) + numFirstDay - 1].setTextColor(Color.RED);
-                        days[Integer.parseInt(date[0]) + numFirstDay - 1].setBackground(getActivity().getResources().getDrawable(R.drawable.retangle_important));
-                    } else {
-                        days[Integer.parseInt(date[0]) + numFirstDay - 1].setTextColor(Color.BLUE);
-                        days[Integer.parseInt(date[0]) + numFirstDay - 1].setBackground(getActivity().getResources().getDrawable(R.drawable.retangle_compromisso));
+            if (Integer.parseInt(date[2]) == today.getYear()){
+                if (Integer.parseInt(date[1]) == today.getMonthValue()) {
+                    if (Integer.parseInt(date[0]) != today.getDayOfMonth()) {
+                        if (CompromissoCollection.getInstance().getCompromisso(i).getImportance()) {
+                            days[Integer.parseInt(date[0]) + numFirstDay - 1].setTextColor(Color.RED);
+                            days[Integer.parseInt(date[0]) + numFirstDay - 1].setBackground(getActivity().getResources().getDrawable(R.drawable.retangle_important));
+                        } else {
+                            days[Integer.parseInt(date[0]) + numFirstDay - 1].setTextColor(Color.BLUE);
+                            days[Integer.parseInt(date[0]) + numFirstDay - 1].setBackground(getActivity().getResources().getDrawable(R.drawable.retangle_compromisso));
+                        }
                     }
                 }
             }
+
         }
     }
 
