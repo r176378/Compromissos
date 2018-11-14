@@ -19,6 +19,8 @@ import java.time.LocalDate;
  */
 public class ScreenCalendar extends Fragment {
 
+    TextView proximo_mes;
+    TextView ultimo_mes;
     LocalDate today;
     TextView days[];
 
@@ -47,12 +49,38 @@ public class ScreenCalendar extends Fragment {
         return view;
     }
 
-/*    public void next_month(){
-        Integer monthValue = today.getMonthValue();
-        LocalDate nextMonth = LocalDate.of(LocalDate.now().getYear(), monthValue, 1);
-        nextMonth.getDayOfWeek();
-        nextMonth.
-    }*/
+    public void nextMonth(){
+        int numFirstDay = 0;
+        today = today.plusMonths(1);
+        DayOfWeek firstDay = today.withDayOfMonth(1).getDayOfWeek();
+        int lastDay = today.lengthOfMonth();
+        String mounthName = today.getMonth().toString();
+        TextView mounth = getView().findViewById(R.id.nome_mes);
+        mounth.setText(mounthName);
+        numFirstDay = getNumFirstDay(numFirstDay, firstDay);
+        getDayIDs(getView());
+        hideDaysNotInMonth(numFirstDay, lastDay);
+        highlightCurrentDay(days[today.getDayOfMonth() + numFirstDay - 1]);
+        highlightEvents(numFirstDay, today);
+        setDayNumbersText(numFirstDay, lastDay);
+    }
+
+    public void lastMount(){
+        int numFirstDay = 0;
+        today = today.plusMonths(1);
+        DayOfWeek firstDay = today.withDayOfMonth(1).getDayOfWeek();
+        int lastDay = today.lengthOfMonth();
+        String mounthName = today.getMonth().toString();
+        TextView mounth = getView().findViewById(R.id.nome_mes);
+        mounth.setText(mounthName);
+        numFirstDay = getNumFirstDay(numFirstDay, firstDay);
+        getDayIDs(getView());
+        hideDaysNotInMonth(numFirstDay, lastDay);
+        highlightCurrentDay(days[today.getDayOfMonth() + numFirstDay - 1]);
+        highlightEvents(numFirstDay, today);
+        setDayNumbersText(numFirstDay, lastDay);
+    }
+
 
     private void setDayNumbersText(int numFirstDay, int lastDay) {
         for (Integer day = 1; day <= lastDay; day++) {
