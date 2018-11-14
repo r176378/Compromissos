@@ -79,6 +79,9 @@ public class Main extends AppCompatActivity
         ScreenNewCompromisso screenNewCompromisso = new ScreenNewCompromisso();
         ftrans.replace(R.id.mainContainer, screenNewCompromisso, "screenNewCompromissos");
         ftrans.addToBackStack("screenNewCompromissos");
+        Bundle mBundle = new Bundle();
+        mBundle.putInt("position", -1);
+        screenNewCompromisso.setArguments(mBundle);
         ftrans.commit();
     }
 

@@ -117,6 +117,7 @@ public class ScreenNewCompromisso extends Fragment{
         editTime = view.findViewById(R.id.editTime);
         editTime.setOnClickListener(this.timeListener);
         mSpinner = view.findViewById(R.id.spinnerType);
+        try{
         if ((Integer)getArguments().get("position") != -1){
             CompromissoCollection compromissoCollection = CompromissoCollection.getInstance();
             Compromisso compromisso = compromissoCollection.getCompromisso((Integer)getArguments().get("position"));
@@ -131,6 +132,10 @@ public class ScreenNewCompromisso extends Fragment{
             if (!mSpinner.getSelectedItem().toString().equals(compromissoType)){
                 mSpinner.setSelection(1);
             }
+        }
+
+    } catch (NullPointerException e){
+
         }
         return view;
     }
